@@ -18,7 +18,7 @@ const References = function({id, title, refs, view, goBack}){
       <table className="table table-sm">
       <tbody>
         {refs.items.map(function(item){
-            var link = `https://github.com/${item.repo}/blob/${item.branch}/${item.path}#L${item.line_number}`;
+            var link = `https://github.com/${item.repo}/blob/${item.branch}/${item.path}#L${item.lineNumber}`;
             var text = `${item.repo}/${item.path}`;
             return (
               <tr key={item.id}>

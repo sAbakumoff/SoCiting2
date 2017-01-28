@@ -21,10 +21,8 @@ export const actionCreators = Object.assign({},  reduxCrud.actionCreatorsFor('qu
       dispatch(actionCreators.fetchStart(actionData));
       fetch(fetchUrl).then(response=>{
          return response.json();
-       }).then(json=>{
-         if(json.error)
-          return dispatch(actionCreators.fetchError(json.error));
-        return dispatch(actionCreators.fetchSuccess(json.data, actionData));
+       }).then(json=>{    
+        return dispatch(actionCreators.fetchSuccess(json, actionData));
       }, error=>{
         dispatch(actionCreators.fetchError(error));
       });
