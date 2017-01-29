@@ -15,10 +15,10 @@ namespace WebAPIApplication.Controllers
         }
         
         // GET api/questions/ruby
-        [HttpGet("{lang}")]
-        public List<Question> Get(string lang)
+        [HttpGet("{lang}/{offset=0}/{limit=10}")]
+        public List<Question> Get(string lang, int offset, int limit)
         {
-            return _dataLayer.GetQuestions(lang);
+            return _dataLayer.GetQuestions(lang, offset, limit);
         }
     }
 }

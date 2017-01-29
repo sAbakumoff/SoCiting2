@@ -13,7 +13,7 @@ export const actionCreators = Object.assign({},  reduxCrud.actionCreatorsFor('qu
     }
   },
   fetch(lang, offset, limit){
-    var fetchUrl = `api/questions/${lang}`;
+    var fetchUrl = `api/questions/${lang}/${offset}/${limit}`;
     return (dispatch)=>{
       var actionData = {
         lang : lang
@@ -21,7 +21,7 @@ export const actionCreators = Object.assign({},  reduxCrud.actionCreatorsFor('qu
       dispatch(actionCreators.fetchStart(actionData));
       fetch(fetchUrl).then(response=>{
          return response.json();
-       }).then(json=>{    
+       }).then(json=>{
         return dispatch(actionCreators.fetchSuccess(json, actionData));
       }, error=>{
         dispatch(actionCreators.fetchError(error));

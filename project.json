@@ -16,7 +16,7 @@
     "Microsoft.Extensions.Logging.Console": "1.1.0",
     "Microsoft.Extensions.Logging.Debug": "1.1.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.0",
-    "Microsoft.Data.SQLite": "1.0.0",
+    "Microsoft.Data.SQLite": "1.1.0",
     "Microsoft.AspNetCore.StaticFiles" : "1.1.0"
   },
 
@@ -47,8 +47,9 @@
 
   "publishOptions": {
     "include": [
-      "wwwroot",
-      "**/*.cshtml",
+      "wwwroot/index.html",
+      "wwwroot/js/bundle.js",
+      "Data/sociting.db",
       "appsettings.json",
       "web.config"
     ]

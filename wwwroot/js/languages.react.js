@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {actionCreators as langActionCreators} from './actions/languages';
 import {actionCreators as questionsActionCreators} from './actions/questions';
 
-const supportedLanguages = ['golang', 'ruby']
+const supportedLanguages = ['golang', 'ruby', 'cpp', 'java', 'js', 'php', 'cs', 'python', 'c', 'html', 'xml']
 
 class Languages extends Component{
   render(){
@@ -11,22 +11,25 @@ class Languages extends Component{
       return false;
     var props = this.props;
     function handleInputChange(event) {
-      var lang = event.target.getAttribute('id');
+      event.preventDefault();
+      var lang = event.target.getAttribute('data-lang');
       props.selectLanguage(lang);
     }
     return(
-      <div className="btn-group" data-toggle="buttons">
+      <div className="row">
         {
           supportedLanguages.map(lang=>{
-            var id=lang,
-                isActive = lang === props.language,
-                className = isActive ? "btn btn-primary active" : "btn btn-primary";
+            var isActive = lang === props.language,
+                className = isActive ? "m-1 btn btn-outline-primary" : "m-1 btn btn-outline-secondary";
             return (
-              <label className={className} key={lang}>
-                <input type="radio" name="languages" id={id}  checked={isActive} onChange={handleInputChange} />
-                {lang}
-              </label>
-            )
+              <button type='button'
+                className={className}
+                key={lang}
+                data-lang={lang} 
+                onClick={handleInputChange}>
+                  {lang}
+                </button>
+            );
           })
         }
       </div>

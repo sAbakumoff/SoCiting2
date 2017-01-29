@@ -33,9 +33,9 @@ namespace SoCiting.Data
             });
         }
         
-        public  List<Question> GetQuestions(string lang, int offset=0, int? limit=10)
+        public  List<Question> GetQuestions(string lang, int offset=0, int limit=20)
         {
-            var slice = limit.HasValue ? string.Format("limit {0}, {1}", offset, limit) : string.Empty;
+            var slice = string.Format("limit {0}, {1}", offset, limit);
             var query = string.Format(
                         "select questions.id, title, count(*) as count from questions join {0} on questions.id = {0}.question_id group by questions.id order by count desc {1}", lang, slice);
             System.Console.WriteLine(string.Format("Query is {0}", query));
