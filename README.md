@@ -118,5 +118,7 @@ The result contains the rows the look like
     "line_number": "6"
   }
 ```
-There were roughly 31K records like that, the next question was on how to visualize them.
+There were roughly 31K records like this one, the next question was on how to visualize them.
+
 # Building the web-site
+First of all I moved the resulting data to the SQLite database by creating separate table for each programming language. Then I built the [web-site](http://sociting.biz) that allows to navigate through the data by switching between the languages and jump to the Github source code to check how the information from the questions/answers was applied in the specific scenarios. I also caught this opportunity to play with ASP.NET Core and implement the web-site on my Macbook Pro, without Windows being involved. The resulting application uses the cross platform ASP MVC Web API on the back end and react+redux on the front end. The source code is fully available in this repo.
